@@ -28,6 +28,7 @@ func scrapeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Fetch latest reading from NOAA
+	// API docs: https://api.tidesandcurrents.noaa.gov/api/prod/
 	resp, err := http.Get("https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=wind&date=latest&time_zone=gmt&units=english&format=json&station=" + stationID)
 	if err != nil {
 		log.Fatal(err)
